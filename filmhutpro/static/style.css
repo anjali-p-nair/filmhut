@@ -1,0 +1,140 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+   background-image: url("../static/img/movie-background.jpg");
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+}
+/*navbar*/
+     .navbar {
+            background-color: #f8f9fa;
+        }
+.navbar-toggler {
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+
+.search-box{
+margin:12px;
+}
+
+        .dropdown-menu {
+    position: absolute !important;
+    z-index: 1000 !important; }
+
+
+.msg-content {
+    margin-top:50px;
+    color: #FFFACD;
+    background-color: grey;
+    padding: 10px;
+    box-shadow: 0 0 10px red;
+    }
+/*card*/
+        .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  flex: 1;
+  margin-top:100px;
+  padding:5px;
+}
+
+/*index page*/
+
+     .slideshow {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  max-width: 70%;
+  height: 50%;
+}
+
+.slide-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  max-width: 70%;
+}
+
+
+
+
+.container {
+  position: relative;
+}
+
+
+
+
+/*detail page*/
+
+.my_btn{
+padding:10px;
+margin:10px;
+}
+
+.image-container {
+  display: inline-block;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 2px solid #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
+  }
+
+/*footer*/
+
+#my-footer {
+background-color:#F0F3F4  ;
+height:200px;
+margin-top:50px;
+
+}
+
+#my-footer p {
+padding-top:20px;
+font-size:14px;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 60px;
+}
+
+
+
+.pagination {
+
+    justify-content: center;
+    margin-top: 20px;
+    display:flex;
+}
+
+

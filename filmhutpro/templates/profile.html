@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+     .container {
+        color: #FFFACD;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 400px;
+    }
+
+</style>
+
+
+<body>
+<div class="container">
+    <h1>User Profile</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+  </div>
+</body>
+{% endblock %}

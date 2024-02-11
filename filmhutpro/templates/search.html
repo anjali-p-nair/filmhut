@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<style xmlns="http://www.w3.org/1999/html">
+    .my_search_text {
+        color: white;
+    }
+</style>
+<body>
+    <div>
+        <p class="text-center my_search_text">You have searched for: <b>"{{ query }}"</b></p>
+    </div>
+
+
+
+    <div class="container">
+        <div class="row mx_auto">
+            {% for movie in movies %}
+                <div class="my_bottom_margin col-9 col-sm-12 col-md-3 col-lg-4">
+                    <div class="card text-center" style="height:350px;width:350px">
+
+                        <a href="{% url 'filmapp:movie_detail' movie.id %}">
+                            <img class="card-img-top my_image" src="{{ movie.poster.url }}" alt="{{ movie.title }}" width="200px" height="200px">
+                        </a>
+                        <div class="card-body">
+                            <h4>Title: {{ movie.title }}</h4>
+                            <p>Category: {{ movie.category }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="row mx_auto">
+                    <p class="text-center my_search_text">0 results found</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block body %}
+<body>
+<div class="container" >
+    <div class="row">
+        <div class="col-md-4" style="margin-top:30px; ">
+<div class="image-container">
+    <img src="{{ movie.poster.url }}"  style="height:350px;width:300px;" alt="{{ movie.title }} Poster">
+        </div>
+        </div>
+      <div class="col-md-4"  style="margin-top:30px ;">
+
+<div style="color:#FFFACD;">
+     <h1 >{{ movie.title }}</h1>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+    <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+    <p><strong>Cast:</strong> {{ movie.actors }}</p>
+    <p><strong>Category:</strong> {{ movie.category }}</p>
+    <p><strong>Trailer Link:</strong> <a href="{{ movie.trailer_link }}">{{ movie.trailer_link }}</a></p>
+     <a class="btn btn-warning my_btn" href="{% url 'filmapp:update' movie.id %}">update</a>
+            <a class="btn btn-danger my_btn" href="{% url 'filmapp:delete' movie.id %}">delete</a>
+          <a href="{% url 'filmapp:index' %}">Back to Movies List</a>
+
+</div>
+                             {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+      </div>
+
+    </div>
+</div>
+
+
+</body>
+{% endblock %}

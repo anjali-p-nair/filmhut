@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<body>
+
+   <div class="slideshow">
+  <div class="slide active">
+    <img src="{% static 'img/suzume-poster.jpg' %}" alt="Image 1">
+    <div class="slide-content">
+      <h2>Step into FilmHut, where every click unveils a treasure trove of cinematic gems.</h2>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="{% static 'img/gyeong.jpg' %}" alt="Image 2">
+    <div class="slide-content">
+      <h2>Explore a world where stories come to life, where drama unfolds, and where every scene leaves you craving more.</h2>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="{% static 'img/12th-fail-movie.jpg' %}" alt="Image 3">
+    <div class="slide-content">
+      <h2>Get ready to embark on an adventure of endless entertainment.</h2>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="{% static 'img/wednesday.png' %}" alt="Image 4">
+    <div class="slide-content">
+      <h2>Welcome to your new movie and series haven – welcome to FilmHut.</h2>
+    </div>
+  </div>
+</div>
+
+ <h2 class="msg-content"><center>Dive into the freshest releases and be part of the cinematic conversation at FilmHut.</center></h2>
+
+<div class="container">
+    <div class="row">
+      {% for i in page_obj %}
+<div class="col-md-4" >
+<div class="card" style="width: 18rem;">
+  <img src="{{i.poster.url}}" class="card-img-top" height="200px" alt="...">
+
+  <div class="card-body" style="height: 150px;" >
+    <h5 class="card-title">{{i.title}}</h5>
+    <h6 class ="card-text" >{{i.category}}</h6>
+    <p class="card-text" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{i.actors}}</p>
+    <a href="{% url 'filmapp:movie_detail' i.id %}" >View details</a>
+  </div>
+</div>
+</div>
+       {% endfor %}
+    </div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+            {% if num == page_obj.number %}
+                <span class="current">{{ num }}</span>
+            {% else %}
+                <a class="btn btn-outline-secondary" href="?page={{ num }}">{{ num }}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+            <a class="btn btn-outline-secondary" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+        {% endif %}
+    </span>
+</div>
+</div>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  var slides = document.querySelectorAll('.slide');
+  var currentSlide = 0;
+
+  function nextSlide() {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  setInterval(nextSlide, 3000);
+});
+</script>
+</body>
+{% endblock %}

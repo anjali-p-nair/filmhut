@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block body %}
+<style>
+    body {
+        background-color: #282c34;
+
+        font-family: Arial, sans-serif;
+        margin:0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .form-container {
+        background-color: #39424e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color:white;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #61dafb;
+        color: #282c34;
+        cursor: pointer;
+    }
+
+    input[type="file"] {
+        border: 1px solid #ccc;
+        padding: 6px;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="form-container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+       {{ form.as_p }}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}
